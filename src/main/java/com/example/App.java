@@ -5,12 +5,13 @@ import java.util.logging.Logger;
 public class App {
     private static final Logger logger = Logger.getLogger(App.class.getName());
     
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Calculator calc = new Calculator();
-        logger.info("Result: " + calc.calculate(10, 5, "add-again"));
+        int result = calc.calculate(10, 5, "add-again");
+        logger.log(java.util.logging.Level.INFO, "Result: {0}", result);
         
         UserService service = new UserService();
         service.findUser("admin");
-        service.deleteUser("admin"); // NEW dangerous call
+        service.deleteUser("admin");
     }
 }
